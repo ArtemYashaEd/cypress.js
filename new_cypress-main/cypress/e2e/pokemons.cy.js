@@ -12,6 +12,9 @@ describe('Покупка аватара', function () {                         
          cy.get('.k_input_ccv').type('123');                             // CVV 
          cy.get('.k_input_date').type('2412');                           // срок действия 
          cy.get('.k_input_name').type('ARTEM IVANOV');                   // имя владельца
-         cy.get('.pay-btn').click();                                     // нажимаем кнопку Оплатить
+         cy.get('.pay-btn').click();                                  // нажимаем кнопку Оплатить
+         cy.get('#cardnumber').type('0000');                            // код подтверждения 
+         cy.get('.payment__submit-button').click();                      // Отправить
+         cy.contains('Покупка прошла успешно').should('be.visible');     // проверяем видимость сообщения
      })
  })
